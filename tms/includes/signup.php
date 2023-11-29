@@ -5,7 +5,7 @@ if(isset($_POST['submit']))
 $fname=$_POST['fname'];
 $mnumber=$_POST['mobilenumber'];
 $email=$_POST['email'];
-$password=($_POST['password']);
+$password=md5($_POST['password']);
 $sql="INSERT INTO  tblusers(FullName,MobileNumber,EmailId,Password) VALUES(:fname,:mnumber,:email,:password)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
